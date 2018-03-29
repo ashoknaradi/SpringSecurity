@@ -35,12 +35,7 @@
 		<form action="" method="post">
 			<table>
 				<tr>
-					<th>User Name
-	        			<button type="button" class="sortButton" onclick="sortUser()">
-							<img src="${pageContext.request.contextPath}/Images/sort_icon.jpg" style="width:3px;height:10px;">
-						</button>
-					</th>
-					<!-- <th><input type="button" value="User Name" onclick="sortUser()"/></th> -->
+					<th>User Name</th>
 					<th>User Mobile</th>
 					<th>User Email</th>					
 					<th>User City</th>

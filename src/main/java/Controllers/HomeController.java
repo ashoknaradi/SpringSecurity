@@ -60,10 +60,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "registerController")
 	public String registerController(TestUser testUser) {
-		Session session = dao.openSession();
-		session.save(testUser);
-		session.beginTransaction().commit();
-		session.close();
+		dao.regUser(testUser);
 		return "Home";
 	}
 	

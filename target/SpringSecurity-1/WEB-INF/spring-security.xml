@@ -17,7 +17,8 @@
     </http> -->
         
     <http auto-config="true">  
-    	<intercept-url pattern="/jspRegController" access="ROLE_USER" />  
+    	<intercept-url pattern="/jspRegController" access="ROLE_USER, ROLE_ADMIN" />  
+    	<intercept-url pattern="/registerController" access="ROLE_USER, ROLE_ADMIN" />  
         <intercept-url pattern="/fetchController" access="ROLE_ADMIN" />
         	<form-login login-page="/loginSecurity" default-target-url="/defaultPage" authentication-failure-url="/loginFail"
         	 username-parameter="email" password-parameter="password" /> 

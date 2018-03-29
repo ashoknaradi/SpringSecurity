@@ -17,8 +17,7 @@
 			<tr><td>Password : </td><td><input type="password" name="password" /></td></tr>
 			<tr><td>Role : </td>
 							<td>
-								<select>
-									<option value=""></option>
+								<select name="role">
 									<option value="ROLE_USER">ROLE_USER</option>
 									<option value="ROLE_ADMIN">ROLE_ADMIN</option>
 									<option value="ROLE_DBA">ROLE_DBA</option>

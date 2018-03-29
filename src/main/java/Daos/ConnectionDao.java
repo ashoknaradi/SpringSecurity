@@ -18,6 +18,13 @@ public class ConnectionDao {
 		return session;
 	}
 
+	public void regUser(TestUser testUser) {
+		Session session = openSession();
+		session.save(testUser);
+		session.beginTransaction().commit();
+		session.close();
+	}
+	
 	public List<TestUser> fetchUsersList() {
 		Session session = openSession();
 		Query query = session.createQuery("from TestUser");
