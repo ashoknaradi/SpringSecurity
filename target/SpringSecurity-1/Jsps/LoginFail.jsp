@@ -12,7 +12,12 @@
 	</h1>
 	<form>
 		<table>
-			<td><a href="${pageContext.request.contextPath}/Jsps/Login_Security.jsp">Login_Security Page</a></td>
+			<td>
+				<a href="${pageContext.request.contextPath}/Jsps/Login_Security.jsp">Login_Security Page</a>
+			</td>
+			<td>
+				<a href="${pageContext.request.contextPath}/Jsps/Home.jsp">Login_Security Page</a>
+			</td>	
 		</table>
 	</form>
 </body>

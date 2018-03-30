@@ -85,4 +85,10 @@ public class HomeController {
 		model.addAttribute("ErrorMessage", "Login Failed!.... Please provide valid details");
 		return "LoginFail";
 	}
+	
+	@RequestMapping(value = "accessDenied")
+	public String accessDenied(Model model) {
+		model.addAttribute("ErrorMessage", "Access Denied!.... You do not have a permission to access this page");
+		return "Access_Denied";
+	}
 }

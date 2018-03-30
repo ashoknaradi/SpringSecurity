@@ -6,7 +6,7 @@
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
     
-    <!-- HTTP BASIC -->
+    <!-- HTTP BASIC with roles-->
     <!-- <http>  
         <intercept-url pattern="/jspRegController" access="ROLE_USER" />  
         <intercept-url pattern="/fetchController" access="ROLE_ADMIN" /> 
@@ -16,15 +16,27 @@
         <logout logout-success-url="/defaultPage"/>
     </http> -->
         
-    <http auto-config="true">  
-    	<intercept-url pattern="/jspRegController" access="ROLE_USER, ROLE_ADMIN" />  
+        <!-- HTTP Form Based with roles-->
+    <!-- <http>  
+    	<intercept-url pattern="/jspRegController" access="ROLE_USER, ROLE_ADMIN, ROLE_DBA" />  
     	<intercept-url pattern="/registerController" access="ROLE_USER, ROLE_ADMIN" />  
-        <intercept-url pattern="/fetchController" access="ROLE_ADMIN" />
+        <intercept-url pattern="/fetchController" access="ADMIN" />
         	<form-login login-page="/loginSecurity" default-target-url="/defaultPage" authentication-failure-url="/loginFail"
         	 username-parameter="email" password-parameter="password" /> 
         <logout logout-success-url="/defaultPage"/>
-    </http>
+    </http> -->
     
+        <!-- HTTP Form Based with custom roles-->
+    <http access-decision-manager-ref="accessDecisionManager">
+		<intercept-url pattern="/jspRegController" access="USER, ADMIN" />  
+    	<intercept-url pattern="/registerController" access="USER, ADMIN, DBA" />  
+        <intercept-url pattern="/fetchController" access="ADMIN" />
+        <form-login login-page="/loginSecurity" default-target-url="/defaultPage" authentication-failure-url="/loginFail"
+        	 username-parameter="email" password-parameter="password" /> 
+        <access-denied-handler error-page="/accessDenied" />
+        <logout logout-success-url="/defaultPage"/>
+	</http>
+	
     <!-- <authentication-manager>  
       <authentication-provider>  
         <user-service>  
